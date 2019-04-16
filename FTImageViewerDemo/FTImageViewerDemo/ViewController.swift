@@ -67,7 +67,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = tableView.rowHeight
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
      
         self.addOrientationChangeNotification()
     }
@@ -100,7 +100,7 @@ extension ViewController {
     
     fileprivate func addOrientationChangeNotification() {
         NotificationCenter.default.addObserver(self,selector: #selector(onChangeStatusBarOrientationNotification(notification:)),
-                                               name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation,
+                                               name: UIApplication.didChangeStatusBarOrientationNotification,
                                                object: nil)
         
     }

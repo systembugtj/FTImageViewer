@@ -132,7 +132,7 @@ public class FTImageViewer: NSObject, UIScrollViewDelegate, UIGestureRecognizerD
         let imageView = UIImageView(frame : CGRect.zero)
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = false
-        imageView.contentMode = UIViewContentMode.scaleAspectFit
+        imageView.contentMode = UIView.ContentMode.scaleAspectFit
         imageView.backgroundColor = UIColor.clear;
         return imageView
     }()
@@ -217,7 +217,7 @@ public class FTImageViewer: NSObject, UIScrollViewDelegate, UIGestureRecognizerD
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if (gestureRecognizer.view!.isKind(of: FTImageView.self)){
             let translatedPoint = (gestureRecognizer as! UIPanGestureRecognizer).translation(in: gestureRecognizer.view)
-            return fabs(translatedPoint.y) > fabs(translatedPoint.x);
+            return abs(translatedPoint.y) > abs(translatedPoint.x);
         }
         return true
     }
@@ -229,15 +229,15 @@ public class FTImageViewer: NSObject, UIScrollViewDelegate, UIGestureRecognizerD
         let translatedPoint = gesture.translation(in: currentItem)
         let newAlpha = CGFloat(1 - fabsf(Float(translatedPoint.y/FTImageViewerScreenHeight)))
 
-        if (gesture.state == UIGestureRecognizerState.began || gesture.state == UIGestureRecognizerState.changed){
+        if (gesture.state == UIGestureRecognizer.State.began || gesture.state == UIGestureRecognizer.State.changed){
             scrollView.isScrollEnabled = false
             currentItem.frame = CGRect(x: currentItem.frame.origin.x, y: translatedPoint.y, width: currentItem.frame.size.width, height: currentItem.frame.size.height)
             self.tabBar.frame = CGRect(x: 0, y: FTImageViewerScreenHeight-FTImageViewBarHeight*newAlpha, width: FTImageViewerScreenWidth, height: FTImageViewBarHeight)
             backgroundView.backgroundColor = FTImageViewerBackgroundColor.withAlphaComponent(newAlpha)
-        }else if (gesture.state == UIGestureRecognizerState.ended ){
+        }else if (gesture.state == UIGestureRecognizer.State.ended ){
             
             scrollView.isScrollEnabled = true
-            if (fabs(translatedPoint.y) >= FTImageViewerScreenHeight*0.2){
+            if (abs(translatedPoint.y) >= FTImageViewerScreenHeight*0.2){
                 UIView.animate(withDuration: FTImageViewerAnimationDuriation, animations: { () -> Void in
                     self.backgroundView.backgroundColor = UIColor.clear
                     if (translatedPoint.y > 0){
@@ -338,7 +338,7 @@ extension FTImageViewer {
     
     fileprivate func addOrientationChangeNotification() {
         NotificationCenter.default.addObserver(self,selector: #selector(onChangeStatusBarOrientationNotification(notification:)),
-                                               name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation,
+                                               name: UIApplication.didChangeStatusBarOrientationNotification,
                                                object: nil)
         
     }
@@ -379,22 +379,22 @@ public class FTImageView: UIScrollView, UIScrollViewDelegate{
         self.backgroundColor = UIColor.clear
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
-        self.decelerationRate = UIScrollViewDecelerationRateFast
-        self.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+        self.decelerationRate = UIScrollView.DecelerationRate.fast
+        self.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
         self.minimumZoomScale = 1.0
         self.maximumZoomScale = 3.0
         self.delegate = self
         self.tag = atIndex
         
         activityIndicator = UIActivityIndicatorView(frame: CGRect(x: (frame.width - FTImageViewBarHeight)/2, y: (frame.height - FTImageViewBarHeight)/2, width: FTImageViewBarHeight, height: FTImageViewBarHeight))
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.white
+        activityIndicator.style = UIActivityIndicatorView.Style.white
         activityIndicator.hidesWhenStopped = true
         self.addSubview(activityIndicator)
         
         activityIndicator.startAnimating()
         
         imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
-        imageView.contentMode = UIViewContentMode.scaleAspectFit
+        imageView.contentMode = UIView.ContentMode.scaleAspectFit
 
         if let img : UIImage = imageResource.image {
             imageView.image = img
@@ -486,8 +486,8 @@ public class FTImageViewBar : UIView {
     fileprivate lazy var closeButton : UIButton = {
         let button = UIButton(frame: CGRect(x: FTImageViewBarDefaultMargin, y: (self.frame.height-FTImageViewBarButtonWidth)/2, width: FTImageViewBarButtonWidth, height: FTImageViewBarButtonWidth))
         button.backgroundColor = UIColor.clear
-        button.contentMode = UIViewContentMode.scaleAspectFill
-        button.addTarget(self, action: #selector(FTImageViewBar.onCloseButtonTapped), for: UIControlEvents.touchUpInside)
+        button.contentMode = UIView.ContentMode.scaleAspectFill
+        button.addTarget(self, action: #selector(FTImageViewBar.onCloseButtonTapped), for: UIControl.Event.touchUpInside)
         return button
     }()
     
@@ -495,8 +495,8 @@ public class FTImageViewBar : UIView {
     fileprivate lazy var saveButton : UIButton = {
         let button = UIButton(frame: CGRect(x: self.frame.width-FTImageViewBarButtonWidth-FTImageViewBarDefaultMargin, y: (self.frame.height-FTImageViewBarButtonWidth)/2, width: FTImageViewBarButtonWidth, height: FTImageViewBarButtonWidth))
         button.backgroundColor = UIColor.clear
-        button.contentMode = UIViewContentMode.scaleAspectFill
-        button.addTarget(self, action: #selector(FTImageViewBar.onSaveButtonTapped), for: UIControlEvents.touchUpInside)
+        button.contentMode = UIView.ContentMode.scaleAspectFill
+        button.addTarget(self, action: #selector(FTImageViewBar.onSaveButtonTapped), for: UIControl.Event.touchUpInside)
         return button
     }()
     
@@ -526,10 +526,10 @@ public class FTImageViewBar : UIView {
                 imageBundle = bundle;
             }
         }
-        closeButton.setImage(UIImage(named: "close", in: imageBundle, compatibleWith: nil), for: UIControlState())
+        closeButton.setImage(UIImage(named: "close", in: imageBundle, compatibleWith: nil), for: UIControl.State())
         self.addSubview(closeButton)
         
-        saveButton.setImage(UIImage(named: "save", in: imageBundle, compatibleWith: nil), for: UIControlState())
+        saveButton.setImage(UIImage(named: "save", in: imageBundle, compatibleWith: nil), for: UIControl.State())
         self.addSubview(saveButton)
 
         self.addSubview(countLabel)
@@ -592,12 +592,12 @@ public class FTImageGridView: UIView {
                 let imageButton  = UIButton()
                 imageButton.frame = CGRect(x: x, y: y, width: imgHeight, height: imgHeight)
                 imageButton.backgroundColor = KCOLOR_BACKGROUND_WHITE
-                imageButton.imageView?.contentMode = UIViewContentMode.scaleAspectFill
-                imageButton.kf.setImage(with: URL(string: imageArray[i])!, for: UIControlState.normal)
+                imageButton.imageView?.contentMode = UIView.ContentMode.scaleAspectFill
+                imageButton.kf.setImage(with: URL(string: imageArray[i])!, for: UIControl.State.normal)
                 
                 imageButton.tag = i
                 imageButton.clipsToBounds = true
-                imageButton.addTarget(self, action: #selector(FTImageGridView.onClickImage(_:)), for: UIControlEvents.touchUpInside)
+                imageButton.addTarget(self, action: #selector(FTImageGridView.onClickImage(_:)), for: UIControl.Event.touchUpInside)
                 self.addSubview(imageButton)
                 
                 self.buttonArray.append(imageButton)

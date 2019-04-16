@@ -1,5 +1,6 @@
 
+platform :ios, '10.0'
 target 'FTImageViewerDemo' do
-pod 'Kingfisher'
+pod 'Kingfisher', '~> 5.3.1'
 use_frameworks!
 end

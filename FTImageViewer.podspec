@@ -11,13 +11,13 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/liufengting/FTImageViewer"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "liufengting" => "wo157121900@me.com" }
-  s.platform     = :ios, "8.0"
+  s.platform     = :ios, "10.0"
   s.source       = { :git => "https://github.com/liufengting/FTImageViewer.git", :tag => "#{s.version}" }
   s.source_files = ["FTImageViewer/*.swift"]#, "FTImageViewer/FTImageViewer.h"]
   s.resources    = "FTImageViewer/*.{bundle}"
   s.requires_arc = true
   s.framework    = "UIKit"
-  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3.0' }
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
   s.dependency 'Kingfisher'
 
 end
