@@ -3,7 +3,19 @@ platform :ios, '10.0'
 
 use_frameworks!
 
-target 'FTImageViewerDemo' do
+target 'FTImageViewer_Example' do
   pod 'FTImageViewer', :path => '../'
+  target 'FTImageViewer_Tests' do
+    inherit! :search_paths
+
+    pod 'Quick', '~> 2.0.0'
+    pod 'Nimble', '~> 8.0.1'
+    pod 'iOSSnapshotTestCase'
+    pod 'Nimble-Snapshots' , '~> 7.0.0'
+  end
+  target 'FTImageViewer_UITests' do
+    inherit! :search_paths
+
+  end
 end
 

@@ -4,6 +4,7 @@
 
 | Version | Date | ChangeLog |
 | :--------: | :--------: | :-------- |
+| 5.0.0 | 2019-04-16 | update to Swift 5.0 and refactor project structure |
 | 1.5.0 | 2016-10-12 | trying to update to Swift 3.0 |
 | 1.9.5 | 2016-10-19 | update to Swift 3.0 |
 | 1.9.7 | 2016-11-21 | FIX: activityIndicator not showing |

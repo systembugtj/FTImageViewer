@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Volumes/DEV/workspace/project/conouch/thirdparty/FTImageViewer/Example/FTImageViewer.xcodeproj">
+      location = "group:FTImageViewer.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

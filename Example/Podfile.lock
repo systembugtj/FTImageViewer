@@ -1,14 +1,34 @@
 PODS:
   - FTImageViewer (5.0.0):
     - Kingfisher
+  - iOSSnapshotTestCase (6.0.3):
+    - iOSSnapshotTestCase/SwiftSupport (= 6.0.3)
+  - iOSSnapshotTestCase/Core (6.0.3)
+  - iOSSnapshotTestCase/SwiftSupport (6.0.3):
+    - iOSSnapshotTestCase/Core
   - Kingfisher (5.3.1)
+  - Nimble (8.0.1)
+  - Nimble-Snapshots (7.0.0):
+    - Nimble-Snapshots/Core (= 7.0.0)
+  - Nimble-Snapshots/Core (7.0.0):
+    - iOSSnapshotTestCase (~> 6.0)
+    - Nimble (~> 8.0)
+  - Quick (2.0.0)
 
 DEPENDENCIES:
   - FTImageViewer (from `../`)
+  - iOSSnapshotTestCase
+  - Nimble (~> 8.0.1)
+  - Nimble-Snapshots (~> 7.0.0)
+  - Quick (~> 2.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - iOSSnapshotTestCase
     - Kingfisher
+    - Nimble
+    - Nimble-Snapshots
+    - Quick
 
 EXTERNAL SOURCES:
   FTImageViewer:
@@ -16,8 +36,12 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FTImageViewer: 3ed328d4a0e98c680c96d0a01b4a209b2b33cb39
+  iOSSnapshotTestCase: 944a73f6d9676302811a86c0cf35f0e6ef5ab2a0
   Kingfisher: d9e7e0b209b59b8f9873aa2f37654e81a7beea51
+  Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
+  Nimble-Snapshots: 2d6d712ceb2d1850d88f850fbd7c732618106022
+  Quick: ce1276c7c27ba2da3cb2fd0cde053c3648b3b22d
 
-PODFILE CHECKSUM: e85eeb8ef6c7365946347813fb6c75c834df4925
+PODFILE CHECKSUM: cf595991a08a045183dfa1590760a5b1fb8ce6ae
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.5.2
