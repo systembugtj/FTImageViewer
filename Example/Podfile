@@ -13,9 +13,5 @@ target 'FTImageViewer_Example' do
     pod 'iOSSnapshotTestCase'
     pod 'Nimble-Snapshots' , '~> 7.0.0'
   end
-  target 'FTImageViewer_UITests' do
-    inherit! :search_paths
-
-  end
 end
 

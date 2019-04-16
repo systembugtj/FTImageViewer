@@ -14,6 +14,7 @@
 		5AEFDF4B1CF0AD380081F07F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AEFDF491CF0AD380081F07F /* Main.storyboard */; };
 		5AEFDF4D1CF0AD380081F07F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AEFDF4C1CF0AD380081F07F /* Assets.xcassets */; };
 		5AEFDF501CF0AD380081F07F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AEFDF4E1CF0AD380081F07F /* LaunchScreen.storyboard */; };
+		A6DA767F1768A73764A9E229 /* Pods_FTImageViewer_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8559DCF4E7CE816FAFCB74B /* Pods_FTImageViewer_Tests.framework */; };
 		C711199C22665088008B93E9 /* FTImageViewer.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C711199B22665088008B93E9 /* FTImageViewer.podspec */; };
 		C71119A02266509A008B93E9 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = C711199D2266509A008B93E9 /* CHANGELOG.md */; };
 		C71119A12266509A008B93E9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C711199E2266509A008B93E9 /* LICENSE */; };
@@ -61,7 +62,7 @@
 		9759DA44FF67835C641B36BA /* Pods_FTImageViewer_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FTImageViewer_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3DA5717524B6C27ECDCAD5 /* Pods-FTImageViewer_UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FTImageViewer_UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FTImageViewer_UITests/Pods-FTImageViewer_UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B8559DCF4E7CE816FAFCB74B /* Pods_FTImageViewer_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FTImageViewer_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C711199B22665088008B93E9 /* FTImageViewer.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FTImageViewer.podspec; path = ../FTImageViewer.podspec; sourceTree = "<group>"; };
+		C711199B22665088008B93E9 /* FTImageViewer.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FTImageViewer.podspec; path = ../FTImageViewer.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C711199D2266509A008B93E9 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		C711199E2266509A008B93E9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		C711199F2266509A008B93E9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6DA767F1768A73764A9E229 /* Pods_FTImageViewer_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,9 +208,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C71119BC22665572008B93E9 /* Build configuration list for PBXNativeTarget "FTImageViewer_Tests" */;
 			buildPhases = (
+				015E45FED42F54035E4002E4 /* [CP] Check Pods Manifest.lock */,
 				C71119B122665572008B93E9 /* Sources */,
 				C71119B222665572008B93E9 /* Frameworks */,
 				C71119B322665572008B93E9 /* Resources */,
+				BD5E9F39366411F17965FAF5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -287,6 +291,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		015E45FED42F54035E4002E4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FTImageViewer_Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		51E548E28F2AE58849666FE4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -323,6 +349,34 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FTImageViewer_Example/Pods-FTImageViewer_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD5E9F39366411F17965FAF5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FTImageViewer_Tests/Pods-FTImageViewer_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble-Snapshots/Nimble_Snapshots.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble_Snapshots.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FTImageViewer_Tests/Pods-FTImageViewer_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -522,6 +576,7 @@
 		};
 		C71119BD22665572008B93E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F923B7DD8AE58796FBD34BDA /* Pods-FTImageViewer_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -548,6 +603,7 @@
 		};
 		C71119BE22665572008B93E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4B21F8457E31360ECE46BDA /* Pods-FTImageViewer_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
